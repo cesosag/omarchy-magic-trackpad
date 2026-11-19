@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Open or close Omarchy's Apps grid (dock Launchpad).
+# Dock IPC only toggles, so we key off the omarchy-dock-apps layer.
+
+set -euo pipefail
+
+usage() {
+  echo "Usage: $(basename "$0") open|close|toggle" >&2
+  exit 2
+}
+
+[[ $# -eq 1 ]] || usage
+
+is_open() {
+  hyprctl layers -j | grep -Fq '"namespace": "omarchy-dock-apps"'
+}
+
+case "$1" in
+  open)
+    is_open || omarchy-shell omarchy.dock apps
+    ;;
+  close)
+    is_open && omarchy-shell omarchy.dock apps
+    ;;
+  toggle)
+    omarchy-shell omarchy.dock apps
+    ;;
+  *)
+    usage
+    ;;
+esac
