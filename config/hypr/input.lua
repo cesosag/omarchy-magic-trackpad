@@ -21,8 +21,14 @@ hl.config({
 })
 
 -- Three-finger horizontal swipe → switch workspaces (Spaces-like).
+-- scale < 1 slows the swipe (more finger travel per workspace).
 -- See https://wiki.hypr.land/Configuring/Gestures/
-hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.config({
+  gestures = {
+    workspace_swipe_distance = 450,
+  },
+})
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace", scale = 0.55 })
 
 -- Thumb + three fingers (4 contacts) ↔ Apps grid (Launchpad-like).
 -- Same UI as SUPER + ALT + SPACE / omarchy-shell omarchy.dock apps.

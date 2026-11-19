@@ -32,7 +32,7 @@ install.sh                →  copies both and reloads Hyprland
 Hyprland input overrides:
 
 - `natural_scroll`, `clickfinger_behavior`, `drag_3fg = 0`
-- `hl.gesture` for three-finger workspace swipes
+- `hl.gesture` for three-finger workspace swipes (`scale = 0.55`, `workspace_swipe_distance = 450` so swipes feel less twitchy than Hyprland defaults)
 - `hl.gesture` for four-finger pinch open / close, calling `apps-grid`
 
 ### `apps-grid`
