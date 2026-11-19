@@ -13,6 +13,8 @@ hl.config({
     touchpad = {
       natural_scroll = true,
       clickfinger_behavior = true,
+      -- Slightly slower than Omarchy's default (0.4).
+      scroll_factor = 0.25,
       drag_3fg = 0,
     },
   },
