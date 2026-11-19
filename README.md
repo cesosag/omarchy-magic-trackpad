@@ -12,6 +12,7 @@ These are **user config** files under `~/.config/`. They survive `omarchy update
 | Two-finger click | Right-click | Secondary click |
 | Click and hold, then drag | Text selection / window drag | Click-drag |
 | Three-finger swipe left/right | Switch Hyprland workspaces | Switch Spaces |
+| Workspace swipe release | Smooth slide settle (not a hard snap) | Spaces animation |
 | Pinch with thumb + three fingers | Open the Apps grid | Open Launchpad |
 | Spread with thumb + three fingers | Close the Apps grid | Close Launchpad |
 
@@ -22,9 +23,10 @@ The Apps grid is the same UI as **Super + Alt + Space** (`omarchy-shell omarchy.
 ## Files
 
 ```
-config/hypr/input.lua     →  ~/.config/hypr/input.lua
-scripts/apps-grid         →  ~/.config/omarchy/scripts/apps-grid
-install.sh                →  copies both and reloads Hyprland
+config/hypr/input.lua       →  ~/.config/hypr/input.lua
+config/hypr/looknfeel.lua   →  appended to ~/.config/hypr/looknfeel.lua
+scripts/apps-grid           →  ~/.config/omarchy/scripts/apps-grid
+install.sh                  →  installs the above and reloads Hyprland
 ```
 
 ### `input.lua`
@@ -34,6 +36,10 @@ Hyprland input overrides:
 - `natural_scroll`, `clickfinger_behavior`, `drag_3fg = 0`
 - `hl.gesture` for three-finger workspace swipes (`scale = 0.55`, `workspace_swipe_distance = 450` so swipes feel less twitchy than Hyprland defaults)
 - `hl.gesture` for four-finger pinch open / close, calling `apps-grid`
+
+### `looknfeel.lua`
+
+Omarchy disables `workspaces` animations by default, so swipe release jumps. This snippet turns them on with a macOS-like curve and `style = "slide"` (not `slidefade`).
 
 ### `apps-grid`
 
